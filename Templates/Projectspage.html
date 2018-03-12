@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Website - Order your components</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="main.js"></script>
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            margin: 0; 
+        }
+
+        .component-group{
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- For heading navbar -->
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Website Name</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><strong>About Us</strong></a></li>
+                <li><a href="#"><strong>Profile</strong></a></li>
+                <li><a href="#"><strong>Log out</strong></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- For component details -->
+    <div class="container">
+
+        <div class="container" style="border: 1px solid #ccc;padding-top: 15px;padding-bottom: 40px;padding-left: 20px;padding-right: 20px;">
+
+            <!-- For form header -->
+            <div>
+                <h2>Enter the components required</h2>
+                <p>For your project</p>
+            </div>
+
+            <br>
+
+            <form>
+
+                <!-- For initial sample  -->
+                <div>
+                    <div class="component-group">
+                        
+                        <!-- For component name -->
+                        <div class="form-group">
+                            <label>Component:</label>
+                            <input type="text" class="form-control" id="component" placeholder="Component name" required>
+                        </div>
+
+                        <!-- For component quantity -->
+                        <div class="form-group">
+                            <label>Quantity:</label>
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-secondary" type="button"><strong>-</strong></button>
+                                        </span>
+                                            <input type="number" class="form-control" value="0">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-secondary" type="button"><strong>+</strong></button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <div class="input-group">
+                                        <button class="btn btn-default" id="remove" onclick="">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- For removing a component -->
+                        <!-- <div class="form-group">
+                            <button class="btn btn-default" id="remove" onclick="">Remove</button>
+                        </div> -->
+
+                    </div>
+                </div>
+
+                <br>
+                <!-- For adding a new component group -->
+                <div class="form-group">
+                    <button class="btn btn-default" id="addCom" onclick="">New</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Website - login</title>
+    <title>Website - Book your cab</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="main.js"></script>
     <!-- bootstrap link -->
@@ -24,58 +24,52 @@
                 <a class="navbar-brand" href="#">Website Name</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><strong>About Us</strong></a></li>
-            <li><a href="#"><strong>Login</strong></a></li>
+                <li><a href="#"><strong>About Us</strong></a></li>
+                <li><a href="#"><strong>Profile</strong></a></li>
+                <li><a href="#"><strong>Log out</strong></a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- For login form -->
+    <!-- For cab details -->
     <div class="container">
 
         <div class="container" style="border: 1px solid #ccc;padding-top: 15px;padding-bottom: 40px;padding-left: 20px;padding-right: 20px;">
 
             <!-- For form header -->
             <div>
-                <h2>Create</h2>
-                <p>a new Website account</p>
+                <h2>Enter the details</h2>
+                <p>For your cab</p>
             </div>
+
             <br>
+            
             <form>
-
-                <!-- Name input -->
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="username" placeholder="Enter name" required>
-                </div>
-
-                <!-- For E-mail input -->
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="usermail" placeholder="Enter e-mail" required>
-                </div>
-
-                <!-- For password input -->
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" class="form-control" id="userpass" placeholder="Enter password" required>
-                </div>
                 
-                <!-- For confirming password -->
-                <div class="for-group">
-                    <label for="confpass">Confirm-Password:</label>
-                    <input type="password" class="form-control" id="userconfpass" placeholder="Enter password again" required>
+                <!-- For destination -->
+                <div class="form-group">
+                    <label for="destination">Destination:</label>
+                    <input type="text" class="form-control" id="destination" placeholder="Enter your destination" required>
                 </div>
 
-                <br>
-                <!-- Joining or Signing in -->
-                <button class="btn btn-default" id="signin" onclick="">Already there?</button>
-                <button class="btn btn-default" id="signup" onclick="">Join Now</button>
+                <!-- For pick-up point -->
+                <div class="form-group">
+                    <label for="pickup">Pick-up location:</label>
+                    <input type="text" class="form-control" id="pickup" value="VIT Chennai" required>
+                </div>
+
+                <!-- For journey type -->
+                <div class="form-group">
+                    <label class="radio-inline"><input type="radio" name="journeyType">Single journey</label>
+                    <label class="radio-inline"><input type="radio" name="journeyType">Round trip</label>
+                </div>
+
+                <!-- Booking button -->
+                <button class="btn btn-default" id="book" onclick="">Book</button>
 
             </form>
 
         </div>
     </div>
-
 </body>
 </html>

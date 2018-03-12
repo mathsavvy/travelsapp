@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Website - Sign up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="main.js"></script>
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <!-- For heading navbar -->
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Website Name</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><strong>Login</strong></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- For login form -->
+    <div class="container">
+
+        <div class="container" style="border: 1px solid #ccc;padding-top: 15px;padding-bottom: 40px;padding-left: 20px;padding-right: 20px;">
+
+            <!-- For form header -->
+            <div>
+                <h2>Create</h2>
+                <p>a new Website account</p>
+            </div>
+            <br>
+            <form>
+
+                <!-- Name input -->
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="username" placeholder="Enter name" required>
+                </div>
+
+                <!-- For E-mail input -->
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="usermail" placeholder="Enter e-mail" required>
+                </div>
+
+                <!-- Registration number input -->
+                <div class="form-group">
+                    <label for="regno">VIT Registration number:</label>
+                    <input type="text" class="form-control" id="userregno" placeholder="Enter VIT Registration number" required>
+                </div>
+
+                <!-- For password input -->
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="userpass" placeholder="Enter password" required>
+                </div>
+                
+                <!-- For confirming password -->
+                <div class="for-group">
+                    <label for="confpass">Confirm-Password:</label>
+                    <input type="password" class="form-control" id="userconfpass" placeholder="Enter password again" required>
+                </div>
+
+                <br>
+                <!-- Joining or Signing in -->
+                <button class="btn btn-default" id="signin" onclick="">Already there?</button>
+                <button class="btn btn-default" id="signup" onclick="">Join Now</button>
+
+            </form>
+
+        </div>
+    </div>
+
+</body>
+</html>
