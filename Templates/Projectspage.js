@@ -130,13 +130,13 @@ function removeComp(event) {
 function increment(event){
     
     var x = Number(event.target.id.split('-')[1]);
-    
-    // var y = "compQuan-" + String(x);
-    // y = String(y);
-    // var z = document.getElementById(y).value;
-    // comps[x-1].quantity++;
-    // z++;
-    // document.getElementById(y).value = z;
+
+    var y = "compQuan-" + String(x);
+    y = String(y);
+    var z = document.getElementById(y).value;
+    comps[x-1].quantity++;
+    z++;
+    document.getElementById(y).value = z;
 }
 
 // The following code is for decrementing a quatity box in a particular div using the given buttons
