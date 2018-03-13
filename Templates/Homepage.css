@@ -1,0 +1,101 @@
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  
+}
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 43%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 2vw;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+.text {
+  color: black;
+  font-size: 3vw;
+  position: absolute;
+  top: 25%;
+  left: 20%;
+  text-align: center;
+}
+.text1 {
+  color: black;
+  font-size: 3vw;
+  position: absolute;
+  top: 30%;
+  left: 42%;
+  text-align: center;
+}
+.cabBut, .proBut {
+  position: absolute;
+  background-color: #00b33c;
+  border-radius: 10px;
+  padding: 1% 2%;
+  top: 70%;
+  left: 42%;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  color: white;
+  border: none;
+  text-align: center;
+  display: block;
+  font-size: 1.5vw;
+  cursor: pointer;
+}
+.cabBut:after, .proBut:after {
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+.cabBut:active:after, .proBut:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+@media only screen and (width:800px){
+  .prev, .next,.text, .text1, .cabBut, .proBut {
+    width: 100%;
+  }
+}
+@media only screen and (width: 400px) {
+  .prev, .next,.text, .text1, .cabBut, .proBut {width: 100%}
+}

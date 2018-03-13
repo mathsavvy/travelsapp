@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Website - login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/home/sridhar/Desktop/Start-up website/Templates/Homepage.css">
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <!-- For heading navbar -->
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <a class="navbar-brand" href="#">Website Name</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><strong>About Us</strong></a></li>
+                <li><a href="#"><strong>Profile</strong></a></li>
+                <li><a href="#"><strong>Log out</strong></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="col-xs-12 col-md-12">
+
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+                <img src="taxi.jpg" style="height:100%;width:100%;opacity: 0.8;">
+                <div class="text"><strong>CAB SERVICES AT YOUR DOORSTEPS!</strong></div>
+                <button class="cabBut" onclick=""><span><strong>BOOK NOW</strong></span></button>
+            </div>
+            
+            <div class="mySlides fade">
+                <img src="arduino.jpg" style="height:100%;width:100%;opacity: 0.7;">
+                <div class="text1"><strong>PROJECTS</strong></div>
+                <button class="proBut" onclick=""><span><strong>ORDER NOW</strong></span></button>
+            </div> 
+            
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            
+        </div>
+
+    </div>
+
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+        }
+    </script>
+</body>
+</html>
