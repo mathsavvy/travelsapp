@@ -13,7 +13,8 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    
+    <script src="Projectspage.js"></script>
     <style>
         input[type=number]::-webkit-inner-spin-button, 
         input[type=number]::-webkit-outer-spin-button { 
@@ -24,6 +25,15 @@
 
         .component-group{
             border-bottom: 1px solid #ccc;
+        }
+
+        .btn-circle.btn-xl {
+            width: 40px;
+            height: 40px;
+            padding: 5px 4px;
+            border-radius: 35px;
+            font-size: 22px;
+            line-height: 1.33;
         }
     </style>
 
@@ -60,46 +70,21 @@
             <form>
 
                 <!-- For initial sample  -->
-                <div>
-                    <div class="component-group">
-                        
-                        <!-- For component name -->
-                        <div class="form-group">
-                            <label>Component:</label>
-                            <input type="text" class="form-control" id="component" placeholder="Component name">
-                        </div>
-
-                        <!-- For component quantity -->
-                        <div class="form-group">
-                            <label>Quantity:</label>
-                            <div class="row">
-                                <div class="col-xs-5 col-lg-2">
-                                    <div class="input-group">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-primary" type="button"><strong>-</strong></button>
-                                        </span>
-                                            <input type="number" class="form-control" value="0" style="text-align:center">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-primary" type="button"><strong>+</strong></button>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="col-xs-3">
-                                    <div class="input-group">
-                                        <button class="btn btn-primary" id="remove" onclick="">Remove</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- For removing a component -->
-                        <!-- <div class="form-group">
-                            <button class="btn btn-default" id="remove" onclick="">Remove</button>
-                        </div> -->
-
-                    </div>
+                <div id="component-container">
+                 
                 </div>
 
+                <br>
+
+                <div class="component-group">
+                    <div class="form-group">
+                    
+                        <!-- For adding a new component group -->
+                        <button type="button" class="btn btn-primary btn-circle  btn-xl" onclick="compCreate()"><strong>+</strong></button>
+                
+                    </div>
+                </div>
+                                
                 <br>
                 
                 <div class="form-group">
@@ -107,14 +92,14 @@
                     <!-- For Confirming order  -->
                     <button class="btn btn-primary" id="order" onclick="">Order</button>
                     
-                    <!-- For adding a new component group -->
-                    <button class="btn btn-primary" id="addCom" onclick="" style="float:right">New</button>
-                
                 </div>
 
             </form>
 
         </div>
     </div>
+
+    <script src="Projectspage.js"></script>
+
 </body>
 </html>
