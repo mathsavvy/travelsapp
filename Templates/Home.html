@@ -15,58 +15,97 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="Home.css">
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="Home.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
 
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="60">
 
     <!-- For heading navbar -->
-    <nav class="navbar navbar-inverse navbar-static-top">
+    <nav class="navbar navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Website Name</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
             </div>
-            <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><strong>Login</strong></a></li>
-            </ul>
+            
+            <!-- Contents of nav bar -->
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><strong>About Us</strong></a></li>
+                    <li><a href="#"><strong>Sign Up</strong></a></li>
+                    <li><a href="#"><strong>Log in</strong></a></li>
+                </ul>
+            </div>
         </div>
     </nav>
-
-    <div class="row">
-            <div class="col s12 m6">
-              <div class="card">
-                <div class="card-image">
-                  <img src="taxi.jpg">
-                  <span class="card-title">Card Title</span>
-                </div>
-                <div class="card-content">
-                  <p>I am a very simple card. I am good at containing small bits of information.
-                  I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                  <a href="#">This is a link</a>
-                </div>
-              </div>
+    <!-- Jumbotron for page name -->
+    <div class="jumbotron text-center">
+        <h1 id="title" class="animated fadeIn">Website</h1>
+    </div>
+    <div class="container text-center">
+        <h2 id="services">Services</h2>
+        <br><br><br>
+        <div class="row slideanim">
+            <div class="col-sm-6 col-lg-6 col-xs-6">
+                <button id="cabs" type="button" class="btn btn-default btn-circle btn-xl">
+                    <i class="fa fa-car"></i>
+                </button>
             </div>
-            <div class="col s12 m6">
-                    <div class="card">
-                      <div class="card-image">
-                        <img src="arduino.jpg">
-                        <span class="card-title">Card Title</span>
-                      </div>
-                      <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                      </div>
-                      <div class="card-action">
-                        <a href="#">This is a link</a>
-                      </div>
-                    </div>
-                  </div>
-          </div>
+            <div class="col-sm-6 col-lg-6 col-xs-6">
+                <button id="projects" type="button" class="btn btn-default btn-circle btn-xl">
+                    <i class="fa fa-cart-arrow-down"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        
+        $('#cabs').mouseover(function(){
+            $("#title").fadeOut(function() {
+                $(this).text("Want a cab?").fadeIn();
+            });     
+            $("#services").fadeOut(function(){
+                $(this).text("Book Now").fadeIn();
+            });
+        });
+
+        $('#cabs').mouseout(function(){
+            $("#title").fadeOut(function() {
+                $(this).text("Website").fadeIn();
+            });     
+            $("#services").fadeOut(function(){
+                $(this).text("Services").fadeIn();
+            });
+        });
+        
+        $('#projects').mouseover(function(){
+            $("#title").fadeOut(function() {
+                $(this).text("Need components for your project?").fadeIn();
+            });     
+            $("#services").fadeOut(function(){
+                $(this).text("Order Now").fadeIn();
+            });
+        });
+
+        $('#projects').mouseout(function(){
+            $("#title").fadeOut(function() {
+                $(this).text("Website").fadeIn();
+            });     
+            $("#services").fadeOut(function(){
+                $(this).text("Services").fadeIn();
+            });
+        });
+    </script>
 </body>
 </html>
