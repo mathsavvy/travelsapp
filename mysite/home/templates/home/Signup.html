@@ -49,53 +49,75 @@
                 <p>a new Website account</p>
             </div>
             <br>
-            <form>
-
+            <form action="{% url 'register' %}" onsubmit="return validateMyForm();" method="POST">
+                    {% csrf_token %}
                 <!-- Name input -->
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="username" placeholder="Enter name">
+                    <input type="text" class="form-control" name="name" id="username" placeholder="Enter name">
                 </div>
 
                 <!-- For E-mail input -->
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="usermail" placeholder="Enter e-mail">
+                    <input type="email" class="form-control" name="email" id="usermail" placeholder="Enter e-mail">
                 </div>
 
                 <!-- Registration number input -->
                 <div class="form-group">
                     <label for="regno">VIT Registration number:</label>
-                    <input type="text" class="form-control" id="userregno" placeholder="Enter VIT Registration number">
+                    <input type="text" class="form-control" name="regno" id="userregno" placeholder="Enter VIT Registration number">
                 </div>
 
-                <!-- Registration number input -->
+                <!-- Mobile number number input -->
                 <div class="form-group">
                     <label for="mobileno">Mobile number:</label>
-                    <input type="number" class="form-control" id="mobileno" placeholder="Enter mobile number">
+                    <input type="number" class="form-control" name="mobno" id="mobileno" placeholder="Enter mobile number">
+                </div>
+
+                <!-- Alternate Mobile number -->
+                <div class="form-group">
+                    <label for="mobileno">Alternate mobile number:</label>
+                    <input type="number" class="form-control" name="altmob" id="mobileno" placeholder="Enter mobile number">
                 </div>
 
                 <!-- For password input -->
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" class="form-control" id="userpass" placeholder="Enter password">
+                    <input type="password" class="form-control" name="pass" id="userpass" placeholder="Enter password">
                 </div>
                 
                 <!-- For confirming password -->
                 <div class="for-group">
                     <label for="confpass">Confirm-Password:</label>
-                    <input type="password" class="form-control" id="userconfpass" placeholder="Enter password again">
+                    <input type="password" class="form-control" name="repass" id="userconfpass" placeholder="Enter password again">
                 </div>
 
                 <br>
                 <!-- Joining or Signing in -->
+                <input type="submit" class="btn btn-primary" id="signup" value="Join">
                 <button class="btn btn-primary" id="signin" onclick="">Already there?</button>
-                <button class="btn btn-primary" id="signup" onclick="">Join Now</button>
 
             </form>
 
         </div>
     </div>
 
+    <script>
+        function validateMyForm()
+            {
+                x = document.getElementById('userpass').value;
+                y = document.getElementById('userconfpass').value;
+            if(x!=y)
+            { 
+                alert("validation failed false");
+                returnToPreviousPage();
+                return false;
+            }
+
+            alert("validations passed");
+            return true;
+            }
+    </script>
 </body>
 </html>

@@ -15,15 +15,131 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="Home.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="Home.js"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
 
+    <style>
+        .navbar,.navbar-default,.navbar-header,.navbar-default{
+        background-color: rgb(12, 12, 12);
+            color: white !important;
+            border-color: rgb(12, 12, 12);
+        }
+        .navbar-fixed-top, .navbar-fixed-bottom {
+            position: relative;
+        }
+
+        body{
+            background-color: rgb(12, 12, 12); 
+            color: white;
+        }
+
+        a{
+            color: white;
+            -webkit-transition-duration: 0.4s; 
+            transition-duration: 0.4s;    
+        }
+
+        a:hover{
+            color: rgb(12, 12, 12);
+            background-color: white;
+        }
+
+        .navbar {
+            min-height: 80px;
+        }
+        
+        .navbar-brand {
+            padding: 0 15px;
+            height: 80px;
+            line-height: 80px;
+        }
+        
+        .navbar-toggle {
+            margin-top: 23px;
+            padding: 9px 10px !important;
+        }
+        
+        @media (min-width: 768px) {
+            .navbar-nav > li > a {
+                padding-top: 26.5px;
+                padding-bottom: 26.5px;
+                line-height: 27px;
+            }
+        }
+
+        .jumbotron{
+            margin-top: -20px;
+            background-color: rgb(12, 12, 12);
+        }
+
+        .slideanim {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+        }
+        @keyframes slide {
+        0% {
+            opacity: 0;
+            transform: translateY(30%);
+        } 
+        100% {
+            opacity: 1;
+            transform: translateY(0%);
+        }
+        }
+        @-webkit-keyframes slide {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(30%);
+        } 
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0%);
+        }
+        }
+
+        .visanim{
+            animation-name: visbly;
+            -webkit-animation-name: visbly;
+            animation-duration: 3s;
+            -webkit-animation-duration: 3s;
+        }
+        @keyframes visbly {
+            0% {
+            opacity: 0;
+            } 
+            100% {
+            opacity: 1;
+            }
+        }
+        @-webkit-keyframes visbly {
+            0% {
+            opacity: 0;
+            } 
+            100% {
+            opacity: 1;
+            }
+        }
+
+        .btn-circle.btn-xl {
+            width: 120px;
+            height: 120px;
+            padding: 10px 16px;
+            border-radius: 60px;
+            font-size: 48px;
+            line-height: 1.33;
+            color: white;
+        }
+
+        .btn-default, .btn-default:hover, .btn-default:active, .btn-default:visited {
+            background-color: rgb(12, 12, 12) !important;
+        }
+    </style>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="60">
 
@@ -42,7 +158,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><strong>About Us</strong></a></li>
-                    <li><a href="#"><strong>Log out</strong></a></li>
+                    <li><a href="{% url 'logout' %}"><strong>Log out</strong></a></li>
                 </ul>
             </div>
         </div>
