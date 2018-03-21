@@ -2,8 +2,11 @@ from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 
-from .models import User
+
+from .models import Extra
 
 def index(request):
     return render(request, 'home/Index.html', {})
@@ -16,29 +19,33 @@ def signup(request):
 
 def auth(request):
     try:
-        selected_user = User.objects.get(e_mail=request.POST['email'], passwd=request.POST['password'])
-        request.session['user_logged_name'] = selected_user.name
-        request.session['user_logged_id'] = selected_user.user_id
+        user = User.objects.get(username=request.POST['username'])
+        user_auth = authenticate(username=request.POST['username'], password=request.POST['password'])
+        print(user, request.POST['password'], user)
+        if user_auth is not None:
+            login(request, user_auth)
+            return HttpResponseRedirect(reverse('home'))
     except (KeyError, User.DoesNotExist):
-        return render(request, 'home/Login.html', {
-            'error_message': "*Invalid User name or Password",
+        user_auth = None
+    if user_auth is None:
+        return render(request, "home/Login.html", {
+            "error_message": "Invalid email or password"
         })
-    else:
-        return HttpResponseRedirect(reverse('home'))
     
 def register(request):
-    newUser = User(name=request.POST['name'], e_mail=request.POST['email'],reg_no=request.POST['regno'],mob_no=request.POST['mobno'],alt_mob=request.POST['altmob'], passwd=request.POST['pass'])
+    newUser = User(first_name=request.POST['firstname'], last_name=request.POST['firstname'], username=request.POST['username'], email=request.POST['email'],password=request.POST['pass'])
     newUser.save()
-    return render(request, 'home/Home.html', {})
+    newExtra = Extra(reg_no=request.POST['regno'],mob_no=request.POST['mobno'])
+    newExtra.user = newUser
+    newExtra.save()
+    return HttpResponseRedirect(reverse('befsignin'))
 
 def home(request):
-    user_logged_id = request.session['user_logged_id']
-    user_logged = User.objects.get(pk=user_logged_id)
-    session_user_name = request.session['user_logged_name']
-    template = loader.get_template('home/Home.html')
-    return HttpResponse(template.render({}, request))
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('befsignin'))
+        
+    return render(request ,"home/Home.html", {})
 
-def logout(request):
-    for key in list(request.session.keys()):
-        del request.session[key]
-    return HttpResponseRedirect(reverse('index'))
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('befsignin'))

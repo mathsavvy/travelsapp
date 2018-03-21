@@ -46,8 +46,8 @@
                     {% csrf_token %}
                 <!-- For email or mobile number input -->
                 <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="text" class="form-control" name="email" id="userdetail" placeholder="Enter e-mail" required>
+                    <label for="email">Username:</label>
+                    <input type="text" class="form-control" name="username" id="userdetail" placeholder="Enter e-mail" required>
                 </div>
 
                 <!-- For password input -->
@@ -58,10 +58,11 @@
                 
                 <!-- For login and Sign up -->
                 <input type="submit" class="btn btn-primary" value="Sign In">
-                <button class="btn btn-primary" id="signup" onclick="">Join us?</button>
-                <button class="btn btn-primary" id="forgpass" onclick="">Forgot Password?</button>
 
             </form>
+            <br>
+            <button class="btn btn-primary" id="signup" onclick="location.href = '{% url 'signup' %}';">Join us?</button>
+            <button class="btn btn-primary" id="forgpass" onclick="">Forgot Password?</button>
 
         </div>
     </div>
