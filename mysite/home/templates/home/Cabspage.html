@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Website - Book your cab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="main.js"></script>
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body background="/home/sridhar/Desktop/Start-up website/Templates/taxi.jpg">
+
+    <!-- For heading navbar -->
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{% url 'home' %}">Website Name</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'logout' %}"><strong>Log out</strong></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- For cab details -->
+    <div class="container">
+
+        <div class="container" style="border: 1px solid #ccc;padding-top: 15px;padding-bottom: 40px;padding-left: 20px;padding-right: 20px;background-color:white;opacity:0.9">
+
+            <!-- For form header -->
+            <div>
+                <h2>Enter the details</h2>
+                <p>For your cab</p>
+            </div>
+
+            <br>
+            
+            <form action="{% url 'cab_book' %}" method="POST">
+                {% csrf_token %}
+                <!-- For destination -->
+                <div class="form-group">
+                    <label for="destination">Destination:</label>
+                    <input type="text" class="form-control" name="drop" id="destination" placeholder="Enter your destination">
+                </div>
+
+                <!-- For pick-up point -->
+                <div class="form-group">
+                    <label for="pickup">Pick-up location:</label>
+                    <input type="text" class="form-control" name="pickup" id="pickup" value="VIT Chennai">
+                </div>
+
+                <!-- For journey type -->
+                <!-- <div class="form-group">
+                    <label class="radio-inline"><input type="radio" name="journeyType">Single journey</label>
+                    <label class="radio-inline"><input type="radio" name="journeyType">Round trip</label>
+                </div> -->
+
+                <!-- Booking button -->
+                <input type="submit" class="btn btn-primary" id="book" value="Book">
+
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -49,3 +49,14 @@ def home(request):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('befsignin'))
+    
+def cab(request):
+    return render(request, "home/Cabspage.html", {})
+
+def cab_book(request):
+    # tempName = request.user.first_name() + " " + request.user.last_name()
+    newBook = Cabdetail(pickup=request.POST['pickup'],drop=request.POST['drop'])
+    newBook.name = request.user.first_name() 
+    newBook.mobileno = request.user.extra.mob_no()
+    newBook.save()
+    return render(request ,"home/Home.html", {})
