@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from .models import CabRide
+from django.utils import timezone
 
 
 from .models import Extra
@@ -36,7 +37,8 @@ def auth(request):
         })
     
 def register(request):
-    newUser = User(first_name=request.POST['firstname'], last_name=request.POST['firstname'], username=request.POST['username'], email=request.POST['email'],password=request.POST['pass'])
+    newUser = User(first_name=request.POST['firstname'], last_name=request.POST['lastname'], username=request.POST['username'], email=request.POST['email'],password=request.POST['pass'])
+    
     newUser.save()
     newExtra = Extra(reg_no=request.POST['regno'],mob_no=request.POST['mobno'])
     newExtra.user = newUser
@@ -60,7 +62,7 @@ def cab_book(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('befsignin'))
 
-    newBook = CabRide(pickup=request.POST['pickup'],drop=request.POST['drop'])
+    newBook = CabRide(pickup=request.POST['pickup'],drop=request.POST['drop'],jourtype=request.POST['journeyType'])
     newBook.user = request.user
     newBook.save()
     # extradet = request.user.mob_no
@@ -70,5 +72,6 @@ def cab_book(request):
         'curname' : curname,
         # 'extradet' : extradet,
         'pickplace' : newBook.pickup,
-        'dropplace' : newBook.drop
+        'dropplace' : newBook.drop,
+        'jourtype' : newBook.jourtype,
     })
