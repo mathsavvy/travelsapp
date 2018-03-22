@@ -26,6 +26,9 @@
             -moz-appearance: none;
             margin: 0; 
         }
+        .navbar{
+            background-color: rgb(12, 12, 12) !important;
+        }
     </style>
 </head>
 <body>
@@ -34,10 +37,10 @@
     <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Website Name</a>
+                <a class="navbar-brand" href="{% url 'befsignin' %}">Website Name</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><strong>Login</strong></a></li>
+            <li><a href="{% url 'signin' %}"><strong>Login</strong></a></li>
             </ul>
         </div>
     </nav>
@@ -45,7 +48,7 @@
     <!-- For login form -->
     <div class="container">
 
-        <div class="container" style="border: 1px solid #ccc;padding-top: 15px;padding-bottom: 40px;padding-left: 20px;padding-right: 20px;">
+        <div class="container" style="background-color: white;border: 1px solid #ccc;padding-top: 15px;padding-bottom: 40px;padding-left: 20px;padding-right: 20px;">
 
             <!-- For form header -->
             <div>
@@ -105,11 +108,11 @@
 
                 <br>
                 <!-- Joining or Signing in -->
-                <input type="submit" class="btn btn-primary" id="signup" value="Join">
+                <input type="submit" class="btn btn-default " id="signup" value="Join">
 
             </form>
             <br>
-            <button class="btn btn-primary" id="signin" onclick="location.href = '{% url 'signin' %}'">Already there?</button>
+            <button class="btn btn-default" id="signin" onclick="location.href = '{% url 'signin' %}'">Already there?</button>
 
         </div>
     </div>
@@ -125,8 +128,6 @@
                 returnToPreviousPage();
                 return false;
             }
-
-            alert("validations passed");
             return true;
             }
             // $('#mobileno').mask('0000-000-000');

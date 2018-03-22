@@ -4,11 +4,14 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from .models import CabRide
 
 
 from .models import Extra
 
 def index(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('home'))
     return render(request, 'home/Index.html', {})
 
 def signin(request):
@@ -54,9 +57,18 @@ def cab(request):
     return render(request, "home/Cabspage.html", {})
 
 def cab_book(request):
-    # tempName = request.user.first_name() + " " + request.user.last_name()
-    newBook = Cabdetail(pickup=request.POST['pickup'],drop=request.POST['drop'])
-    newBook.name = request.user.first_name() 
-    newBook.mobileno = request.user.extra.mob_no()
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('befsignin'))
+
+    newBook = CabRide(pickup=request.POST['pickup'],drop=request.POST['drop'])
+    newBook.user = request.user
     newBook.save()
-    return render(request ,"home/Home.html", {})
+    # extradet = request.user.mob_no
+    curname = newBook.user.first_name + " " + newBook.user.last_name
+    dropplace = newBook.drop
+    return render(request ,"home/Confirmation.html", {
+        'curname' : curname,
+        # 'extradet' : extradet,
+        'pickplace' : newBook.pickup,
+        'dropplace' : newBook.drop
+    })

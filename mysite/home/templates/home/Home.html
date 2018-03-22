@@ -135,6 +135,9 @@
             line-height: 1.33;
             color: white;
         }
+        .navbar{
+            background-color: rgb(12, 12, 12) !important;
+        }
 
         .btn-default, .btn-default:hover, .btn-default:active, .btn-default:visited {
             background-color: rgb(12, 12, 12) !important;
@@ -170,14 +173,9 @@
         <h2 id="services">Services</h2>
         <br><br><br>
         <div class="row slideanim">
-            <div class="col-sm-6 col-lg-6 col-xs-6">
+            <div class="col-sm-12 col-lg-12 col-xs-12">
                 <button id="cabs" type="button" class="btn btn-default btn-circle btn-xl" onclick="location.href = '{% url 'cab' %}';">
                     <i class="fa fa-car"></i>
-                </button>
-            </div>
-            <div class="col-sm-6 col-lg-6 col-xs-6">
-                <button id="projects" type="button" class="btn btn-default btn-circle btn-xl" onclick="location.href = '{% url 'signin' %}';">
-                    <i class="fa fa-cart-arrow-down"></i>
                 </button>
             </div>
         </div>

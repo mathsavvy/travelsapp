@@ -10,11 +10,10 @@ class Extra(models.Model):
     def __str__(self):
         return self.user.email
 
-class Cabdetail(models.Model):
+class CabRide(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     pickup = models.CharField(max_length=100)
     drop = models.CharField(max_length=100)
-    name = models.CharField(max_length=50)
-    mobileno = models.IntegerField(default=0)
-
+    time = models.TimeField(default=timezone.now)
     def __str__(self):
-        return self.name
+        return self.user.first_name + " " + self.drop 

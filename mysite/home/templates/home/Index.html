@@ -26,125 +26,125 @@
 
     <style>
         .navbar,.navbar-default,.navbar-header,.navbar-default{
-    background-color: rgb(12, 12, 12);
-    color: white !important;
-    border-color: rgb(12, 12, 12);
-}
-.navbar-fixed-top, .navbar-fixed-bottom {
-    position: relative;
-}
+            background-color: rgb(12, 12, 12);
+            color: white !important;
+            border-color: rgb(12, 12, 12);
+        }
+        .navbar-fixed-top, .navbar-fixed-bottom {
+            position: relative;
+        }
 
-body{
-    background-color: rgb(12, 12, 12); 
-    color: white;
-}
+        body{
+            background-color: rgb(12, 12, 12); 
+            color: white;
+        }
 
-a{
-    color: white;
-    -webkit-transition-duration: 0.4s; 
-    transition-duration: 0.4s;    
-}
+        a{
+            color: white;
+            -webkit-transition-duration: 0.4s; 
+            transition-duration: 0.4s;    
+        }
 
-a:hover{
-    color: rgb(12, 12, 12);
-    background-color: white;
-}
+        a:hover{
+            color: rgb(12, 12, 12);
+            background-color: white;
+        }
 
-.navbar {
-    min-height: 80px;
-}
-  
-.navbar-brand {
-    padding: 0 15px;
-    height: 80px;
-    line-height: 80px;
-}
-  
-.navbar-toggle {
-    margin-top: 23px;
-    padding: 9px 10px !important;
-}
-  
-@media (min-width: 768px) {
-    .navbar-nav > li > a {
-        padding-top: 26.5px;
-        padding-bottom: 26.5px;
-        line-height: 27px;
-    }
-}
+        .navbar {
+            min-height: 80px;
+        }
+        
+        .navbar-brand {
+            padding: 0 15px;
+            height: 80px;
+            line-height: 80px;
+        }
+        
+        .navbar-toggle {
+            margin-top: 23px;
+            padding: 9px 10px !important;
+        }
+        
+        @media (min-width: 768px) {
+            .navbar-nav > li > a {
+                padding-top: 26.5px;
+                padding-bottom: 26.5px;
+                line-height: 27px;
+            }
+        }
 
-.jumbotron{
-    margin-top: -20px;
-    background-color: rgb(12, 12, 12);
-}
+        .jumbotron{
+            margin-top: -20px;
+            background-color: rgb(12, 12, 12);
+        }
 
-.slideanim {
-    animation-name: slide;
-    -webkit-animation-name: slide;
-    animation-duration: 1s;
-    -webkit-animation-duration: 1s;
-    visibility: visible;
-}
-@keyframes slide {
-  0% {
-    opacity: 0;
-    transform: translateY(30%);
-  } 
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
-@-webkit-keyframes slide {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(30%);
-  } 
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-  }
-}
+        .slideanim {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+        }
+        @keyframes slide {
+        0% {
+            opacity: 0;
+            transform: translateY(30%);
+        } 
+        100% {
+            opacity: 1;
+            transform: translateY(0%);
+        }
+        }
+        @-webkit-keyframes slide {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(30%);
+        } 
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0%);
+        }
+        }
 
-.visanim{
-    animation-name: visbly;
-    -webkit-animation-name: visbly;
-    animation-duration: 3s;
-    -webkit-animation-duration: 3s;
-}
-@keyframes visbly {
-    0% {
-      opacity: 0;
-    } 
-    100% {
-      opacity: 1;
-    }
-  }
-  @-webkit-keyframes visbly {
-    0% {
-      opacity: 0;
-    } 
-    100% {
-      opacity: 1;
-    }
-  }
+        .visanim{
+            animation-name: visbly;
+            -webkit-animation-name: visbly;
+            animation-duration: 3s;
+            -webkit-animation-duration: 3s;
+        }
+        @keyframes visbly {
+            0% {
+            opacity: 0;
+            } 
+            100% {
+            opacity: 1;
+            }
+        }
+        @-webkit-keyframes visbly {
+            0% {
+            opacity: 0;
+            } 
+            100% {
+            opacity: 1;
+            }
+        }
 
-.btn-circle.btn-xl {
-    width: 120px;
-    height: 120px;
-    padding: 10px 16px;
-    border-radius: 60px;
-    font-size: 48px;
-    line-height: 1.33;
-    color: white;
-}
+        .btn-circle.btn-xl {
+            width: 120px;
+            height: 120px;
+            padding: 10px 16px;
+            border-radius: 60px;
+            font-size: 48px;
+            line-height: 1.33;
+            color: white;
+        }
 
-.btn-default, .btn-default:hover, .btn-default:active, .btn-default:visited {
-    background-color: rgb(12, 12, 12) !important;
-}
-
+        .btn-default, .btn-default:hover, .btn-default:active, .btn-default:visited {
+            background-color: rgb(12, 12, 12) !important;
+        }
     </style>
 </head>
+
 <body data-spy="scroll" data-target=".navbar" data-offset="60">
 
     <!-- For heading navbar -->
@@ -170,27 +170,22 @@ a:hover{
     </nav>
     <!-- Jumbotron for page name -->
     <div class="jumbotron text-center">
-        <h1 id="title">Website</h1>
+        <h1 id="title">Service Dudes</h1>
     </div>
     <div class="container text-center">
-        <h2 id="services">Services</h2>
+        <h2 id="services">    </h2>
         <br><br><br>
         <div class="row slideanim">
-            <div class="col-sm-6 col-lg-6 col-xs-6">
+            <div class="col-sm-12 col-lg-12 col-xs-12">
                 <button id="cabs" type="button" class="btn btn-default btn-circle btn-xl" onclick="location.href = '{% url 'signin' %}';">
                     <i class="fa fa-car"></i>
-                </button>
-            </div>
-            <div class="col-sm-6 col-lg-6 col-xs-6">
-                <button id="projects" type="button" class="btn btn-default btn-circle btn-xl" onclick="location.href = '{% url 'signin' %}';">
-                    <i class="fa fa-cart-arrow-down"></i>
                 </button>
             </div>
         </div>
     </div>
     
     <script>
-        
+
         $('#cabs').mouseover(function(){
             $("#title").fadeOut(function() {
                 $(this).text("Want a cab?").fadeIn();
@@ -205,7 +200,7 @@ a:hover{
                 $(this).text("Website").fadeIn();
             });     
             $("#services").fadeOut(function(){
-                $(this).text("Services").fadeIn();
+                $(this).text("").fadeIn();
             });
         });
         
@@ -226,6 +221,7 @@ a:hover{
                 $(this).text("Services").fadeIn();
             });
         });
+
     </script>
 </body>
 </html>

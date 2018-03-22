@@ -15,13 +15,18 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<style>
+    .navbar{
+        background-color: rgb(12, 12, 12) !important;
+    }
+</style>
 <body>
 
     <!-- For heading navbar -->
     <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
-            <a class="navbar-brand" href="#">Website Name</a>
+            <a class="navbar-brand" href="{% url 'befsignin' %}">ServiceDudes</a>
             </div>
         </div>
     </nav>
@@ -30,12 +35,12 @@
     <!-- For login form -->
     <div class="container">
 
-        <div class="container" style="border: 1px solid #ccc;padding-top: 15px;padding-bottom: 40px;padding-left: 20px;padding-right: 20px;">
+        <div class="container" style="background-color:white;border: 1px solid #ccc;padding-top: 15px;padding-bottom: 40px;padding-left: 20px;padding-right: 20px;">
 
             <!-- For form header -->
             <div>
                 <h2>Log in</h2>
-                <p>with your Website account</p>
+                <p>with your ServiceDudes account</p>
             </div>
             
             <br>
