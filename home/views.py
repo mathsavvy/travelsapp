@@ -37,7 +37,7 @@ def auth(request):
         })
     
 def register(request):
-    newUser = User(first_name=request.POST['firstname'], last_name=request.POST['lastname'], username=request.POST['username'], email=request.POST['email'],password=request.POST['pass'])
+    newUser = User.objects.create_user(first_name=request.POST['firstname'], last_name=request.POST['lastname'], username=request.POST['username'], email=request.POST['email'],password=request.POST['pass'])
     
     newUser.save()
     newExtra = Extra(reg_no=request.POST['regno'],mob_no=request.POST['mobno'])
@@ -74,4 +74,5 @@ def cab_book(request):
         'pickplace' : newBook.pickup,
         'dropplace' : newBook.drop,
         'jourtype' : newBook.jourtype,
+        'timebook' :newBook.time,
     })
