@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Website - Home</title>
+    <title>ServiceUs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- bootstrap link -->
@@ -160,6 +160,7 @@
             <!-- Contents of nav bar -->
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><strong>About Us</strong></a></li>
                     <li><a href="{% url 'logout' %}"><strong>Log out</strong></a></li>
                 </ul>
             </div>
@@ -167,10 +168,10 @@
     </nav>
     <!-- Jumbotron for page name -->
     <div class="jumbotron text-center">
-        <h1 id="title">Website</h1>
+        <h1 id="title">ServiceUs</h1>
     </div>
     <div class="container text-center">
-        <h2 id="services">Services</h2>
+        <h2 id="services">&nbsp;</h2>
         <br><br><br>
         <div class="row slideanim">
             <div class="col-sm-12 col-lg-12 col-xs-12">
@@ -194,10 +195,10 @@
 
         $('#cabs').mouseout(function(){
             $("#title").fadeOut(function() {
-                $(this).text("Website").fadeIn();
+                $(this).text("ServiceUs").fadeIn();
             });     
             $("#services").fadeOut(function(){
-                $(this).text("Services").fadeIn();
+                $(this).text("").fadeIn();
             });
         });
         
@@ -212,10 +213,10 @@
 
         $('#projects').mouseout(function(){
             $("#title").fadeOut(function() {
-                $(this).text("Website").fadeIn();
+                $(this).text("ServiceUs").fadeIn();
             });     
             $("#services").fadeOut(function(){
-                $(this).text("Services").fadeIn();
+                $(this).text("").fadeIn();
             });
         });
     </script>

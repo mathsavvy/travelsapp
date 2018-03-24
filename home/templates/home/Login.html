@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Website - login</title>
+    <title>ServiceUs - login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="main.js"></script>
     <!-- bootstrap link -->
@@ -26,7 +26,14 @@
     <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
-            <a class="navbar-brand" href="{% url 'befsignin' %}">ServiceDudes</a>
+                <a class="navbar-brand" href="{% url 'befsignin' %}">ServiceUs</a>
+            </div>
+            <!-- Contents of nav bar -->
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><strong>About Us</strong></a></li>
+                    <li><a href="{% url 'signup' %}"><strong>Sign Up</strong></a></li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -40,7 +47,7 @@
             <!-- For form header -->
             <div>
                 <h2>Log in</h2>
-                <p>with your ServiceDudes account</p>
+                <p>with your ServiceUs account</p>
             </div>
             
             <br>
@@ -62,12 +69,12 @@
                 </div>
                 
                 <!-- For login and Sign up -->
-                <input type="submit" class="btn btn-primary" value="Sign In">
+                <input type="submit" class="btn btn-default" value="Sign In">
 
             </form>
             <br>
-            <button class="btn btn-primary" id="signup" onclick="location.href = '{% url 'signup' %}';">Join us?</button>
-            <button class="btn btn-primary" id="forgpass" onclick="">Forgot Password?</button>
+            <button class="btn btn-default" id="signup" onclick="location.href = '{% url 'signup' %}';">Join us?</button>
+            <button class="btn btn-default" id="forgpass" onclick="">Forgot Password?</button>
 
         </div>
     </div>
