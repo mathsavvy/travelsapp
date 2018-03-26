@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>ServiceUs - login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="main.js"></script>
     <!-- bootstrap link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -74,7 +73,7 @@
             </form>
             <br>
             <button class="btn btn-default" id="signup" onclick="location.href = '{% url 'signup' %}';">Join us?</button>
-            <button class="btn btn-default" id="forgpass" onclick="">Forgot Password?</button>
+            <button class="btn btn-default" id="forgpass" onclick="location.href = '{% url 'forgpass' %}';">Forgot Password?</button>
 
         </div>
     </div>

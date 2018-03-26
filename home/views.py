@@ -21,6 +21,9 @@ def signin(request):
 def signup(request):
     return render(request, 'home/Signup.html', {})
 
+def forgpass(request):
+    return render(request, 'home/Forgotpassword.html', {})
+
 def auth(request):
     try:
         user = User.objects.get(username=request.POST['username'])
@@ -102,6 +105,19 @@ def register(request):
         newExtra.save()
         return HttpResponseRedirect(reverse('befsignin'))
 
+def retrieve(request):
+    try:
+        extra = Extra.objects.get(reg_no=request.POST['regno'])
+        retre = authenticate(extra.user.username)
+        if retre is not None:
+            login(request, retre)
+            return HttpResponseRedirect(reverse('home'))
+    except (KeyError, Extra.DoesNotExist):
+        retre = None
+    if retre is None:
+        return render(request, "home/Forgotpassword.html", {
+            "error_message": "*Either Mobile number or Registration number does not exist"
+        })
 
 def home(request):
     if not request.user.is_authenticated:
