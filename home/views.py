@@ -37,13 +37,71 @@ def auth(request):
         })
     
 def register(request):
-    newUser = User.objects.create_user(first_name=request.POST['firstname'], last_name=request.POST['lastname'], username=request.POST['username'], email=request.POST['email'],password=request.POST['pass'])
-    
-    newUser.save()
-    newExtra = Extra(reg_no=request.POST['regno'],mob_no=request.POST['mobno'])
-    newExtra.user = newUser
-    newExtra.save()
-    return HttpResponseRedirect(reverse('befsignin'))
+    m = request.POST['firstname'].lower()
+    x = m.isalpha()
+    n = request.POST['lastname'].lower()
+    y = n.isalpha()
+    z = request.POST['username'].isalnum()
+    a = str(request.POST['mobno'])
+    if len(request.POST['firstname'])<3:
+        return render(request, "home/Signup.html", {
+            "error_message": "*Enter a First name"
+        })
+    elif x!=1:
+        return render(request, "home/Signup.html", {
+            "error_message": "*Invalid First name"
+        })
+    elif y!=1:
+        return render(request, "home/Signup.html", {
+            "error_message": "*Invalid Last name"
+        })
+    elif len(request.POST['lastname'])<1:
+        return render(request, "home/Signup.html", {
+            "error_message": "*Enter a Last name"
+        })
+    elif len(request.POST['username'])<6:
+        return render(request, "home/Signup.html", {
+            "error_message": "*Username should have atleast 6 characters"
+        })
+    elif z!=1:
+        return render(request, "home/Signup.html", {
+            "error_message": "*Username should be alphanumeric"
+        })
+    elif User.objects.filter(username=request.POST['username']).exists():
+        return render(request, "home/Signup.html", {
+            "error_message": "*Username already exists"
+        })
+    elif len(request.POST['email'])<7:
+        return render(request, "home/Signup.html", {
+            "error_message": "*Invalid Email"
+        })
+    elif len(request.POST['regno'])!=9:
+        return render(request, "home/Signup.html", {
+            "error_message": "*Invalid registration number"
+        })
+    elif Extra.objects.filter(reg_no=request.POST['regno']).exists():
+        return render(request, "home/Signup.html", {
+            "error_message": "*Registration number already exists"
+        })
+    elif len(a)!=10:
+        return render(request, "home/Signup.html", {
+            "error_message": "*Invalid Mobile number"
+        })
+    elif len(request.POST['pass'])<8:
+        return render(request, "home/Signup.html", {
+            "error_message": "*Password should have more than 7 characters"
+        })
+    elif request.POST['pass']!=request.POST['repass']:
+        return render(request, "home/Signup.html", {
+            "error_message": "*Passwords dont match"
+        })
+    else:
+        newUser = User.objects.create_user(first_name=request.POST['firstname'], last_name=request.POST['lastname'], username=request.POST['username'], email=request.POST['email'],password=request.POST['pass'])
+        newExtra = Extra(reg_no=request.POST['regno'],mob_no=request.POST['mobno'])
+        newExtra.user = newUser
+        newExtra.save()
+        return HttpResponseRedirect(reverse('befsignin'))
+
 
 def home(request):
     if not request.user.is_authenticated:
@@ -64,13 +122,14 @@ def cab_book(request):
 
     newBook = CabRide(pickup=request.POST['pickup'],drop=request.POST['drop'],jourtype=request.POST['journeyType'])
     newBook.user = request.user
+    newExtra = request.user.extra
     newBook.save()
     # extradet = request.user.mob_no
     curname = newBook.user.first_name + " " + newBook.user.last_name
     dropplace = newBook.drop
     return render(request ,"home/Confirmation.html", {
         'curname' : curname,
-        # 'extradet' : extradet,
+        'extradet' : newExtra.mob_no,
         'pickplace' : newBook.pickup,
         'dropplace' : newBook.drop,
         'jourtype' : newBook.jourtype,

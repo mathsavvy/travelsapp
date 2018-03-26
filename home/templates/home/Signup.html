@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>ServiceUs - Sign up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="main.js"></script>
     <!-- bootstrap link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -56,19 +55,23 @@
                 <h2>Create</h2>
                 <p>a new ServiceUs account</p>
             </div>
+
             <br>
-            <form action="{% url 'register' %}" onsubmit="return validateMyForm();" method="POST">
+            {% if error_message %}<p style="color:red">{{ error_message }}</p>{% endif %}
+            <br>
+            
+            <form action="{% url 'register' %}" method="POST">
                     {% csrf_token %}
                 <!-- First Name input -->
                 <div class="form-group">
                     <label for="name">First name:</label>
-                    <input type="text" class="form-control" name="firstname" id="username" placeholder="Enter name">
+                    <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Enter name">
                 </div>
 
                 <!-- Last Name input -->
                 <div class="form-group">
                     <label for="name">Last name:</label>
-                    <input type="text" class="form-control" name="lastname" id="username" placeholder="Enter name">
+                    <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Enter name">
                 </div>
 
                 <!-- User Name input -->
@@ -117,59 +120,10 @@
 
         </div>
     </div>
+    <br>
+    <br>
 
     <script>
-        function validateMyForm()
-            {
-                x = document.getElementById('userpass').value;
-                y = document.getElementById('userconfpass').value;
-                z = document.getElementById('username').value;
-                a = document.getElementById('mobileno').value;
-                b = document.getElementById('firstname').value;
-                c = document.getElementById('lastname').value;
-                
-                // For name
-                if(/^[a-zA-Z]+$/.b){
-                    alert("Enter a valid First name!");
-                    returnToPreviousPage();
-                    return false;
-                }
-                if(/^[a-zA-Z]+$/.c){
-                    alert("Enter a valid Last Name");
-                    returnToPreviousPage();
-                    return false;
-                }
-                if(b.length<1){
-                    alert("Enter your First name!");
-                    returnToPreviousPage();
-                    return false;
-                }
-                if(c.length<1){
-                    alert("Enter your Last name!");
-                    returnToPreviousPage();
-                    return false;
-                }
-
-                // For username
-                if(z.length<6){
-                    alert("Username should have more than 6 characters!");
-                    returnToPreviousPage();
-                    return false;
-                }
-                
-                // For passwords
-                if(x.length<8){
-                    alert("Please enter more than 8 characters for your password!");
-                    returnToPreviousPage();
-                    return false;
-                }
-                if(x!=y){ 
-                    alert("Passwords don't match!");
-                    returnToPreviousPage();
-                    return false;
-                }
-                return true;
-            }
             // $('#mobileno').mask('0000-000-000');
     </script>
 </body>
