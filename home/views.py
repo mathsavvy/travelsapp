@@ -107,8 +107,9 @@ def register(request):
 
 def retrieve(request):
     try:
-        extra = Extra.objects.get(reg_no=request.POST['regno'])
-        retre = authenticate(extra.user.username)
+        user = User.objects.get(email=request.POST['email'],username=request.POST['username'])
+        retre = authenticate(username=request.POST['username'])
+        print(user, request.POST['email'], user)
         if retre is not None:
             login(request, retre)
             return HttpResponseRedirect(reverse('home'))
@@ -116,7 +117,7 @@ def retrieve(request):
         retre = None
     if retre is None:
         return render(request, "home/Forgotpassword.html", {
-            "error_message": "*Either Mobile number or Registration number does not exist"
+            "error_message": "*Either E-mail or username does not exist"
         })
 
 def home(request):
