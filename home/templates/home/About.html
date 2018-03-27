@@ -38,7 +38,6 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{% url 'contact' %}"><strong>Contact Us</strong></a></li>
-                    <li><a href="{% url 'about' %}"><strong>About</strong></a></li>
                     <li><a href="{% url 'signup' %}"><strong>Sign up</strong></a></li>
                     <li><a href="{% url 'signin' %}"><strong>Login</strong></a></li>
                 </ul>
@@ -48,31 +47,10 @@
 
     <div class="container">
         <div class="container" style="background-color: white;border: 1px solid #ccc;padding-top: 15px;padding-bottom: 40px;padding-left: 20px;padding-right: 20px;">
-            <h2>Forgot password?</h2>
-            <p>Enter the following details for logging in!</p>
-            
-            <br>
-            {% if error_message %}<p style="color:red">{{ error_message }}</p>{% endif %}
-            <br>
-
-            <form action="{% url 'retrieve' %}" method="POST">
-                {% csrf_token %}                
-                <!-- For E-mail input -->
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" name="email" id="usermail" placeholder="Enter e-mail">
-                </div>
-
-                <!-- User Name input -->
-                <div class="form-group">
-                    <label for="name">Username:</label>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Enter name">
-                </div>
-
-                <!-- For login and Sign up -->
-                <input type="submit" class="btn btn-default" value="Sign In">
-
-            </form>
+            <h2>Wanna know about Us?</h2>
+            <h4>
+                We are the society of incredible engineers and entrepreneurs who shed their heart to improve the quality of living,we present you the most elegant and world class cab service at VIT door step at low and cost, to avoid any discrepancies in your travel from college to across Tamil Nadu. Our application is under development with more planned packages and offers for students in the future. 
+            </h4>
         </div>
     </div>
 </body>

@@ -24,6 +24,18 @@ def signup(request):
 def forgpass(request):
     return render(request, 'home/Forgotpassword.html', {})
 
+def about(request):
+    return render(request, 'home/About.html', {})
+
+def aboutus(request):
+    return render(request,'home/AboutUs.html', {})
+
+def contact(request):
+    return render(request, 'home/Contact.html', {})
+
+def contactus(request):
+    return render(request,'home/Contactus.html',{})
+
 def auth(request):
     try:
         user = User.objects.get(username=request.POST['username'])
@@ -92,7 +104,7 @@ def register(request):
         })
     elif len(request.POST['pass'])<8:
         return render(request, "home/Signup.html", {
-            "error_message": "*Password should have more than 7 characters"
+            "error_message": "*Password should have more than 4 characters"
         })
     elif request.POST['pass']!=request.POST['repass']:
         return render(request, "home/Signup.html", {

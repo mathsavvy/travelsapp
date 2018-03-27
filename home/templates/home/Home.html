@@ -142,6 +142,7 @@
         .btn-default, .btn-default:hover, .btn-default:active, .btn-default:visited {
             background-color: rgb(12, 12, 12) !important;
         }
+       
     </style>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -150,17 +151,19 @@
     <nav class="navbar navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
+                <a class="navbar-brand" href="{% url 'home' %}">ServiceUs</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>                        
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
                 </button>
             </div>
             
             <!-- Contents of nav bar -->
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><strong>About Us</strong></a></li>
+                    <li><a href="{% url 'contactus' %}"><strong>Contact Us</strong></a></li>
+                    <li><a href="{% url 'aboutus' %}"><strong>About</strong></a></li>
                     <li><a href="{% url 'logout' %}"><strong>Log out</strong></a></li>
                 </ul>
             </div>
@@ -168,10 +171,10 @@
     </nav>
     <!-- Jumbotron for page name -->
     <div class="jumbotron text-center">
-        <h1 id="title">ServiceUs</h1>
+        <h1 id="title">Wanna book a cab?</h1>
     </div>
     <div class="container text-center">
-        <h2 id="services">&nbsp;</h2>
+        <h2 id="services">Click the below icon</h2>
         <br><br><br>
         <div class="row slideanim">
             <div class="col-sm-12 col-lg-12 col-xs-12">
@@ -186,19 +189,19 @@
         
         $('#cabs').mouseover(function(){
             $("#title").fadeOut(function() {
-                $(this).text("Want a cab?").fadeIn();
+                $(this).text("Book Now").fadeIn();
             });     
             $("#services").fadeOut(function(){
-                $(this).text("Book Now").fadeIn();
+                $(this).text("").fadeIn();
             });
         });
 
         $('#cabs').mouseout(function(){
             $("#title").fadeOut(function() {
-                $(this).text("ServiceUs").fadeIn();
+                $(this).text("Wanna book a cab?").fadeIn();
             });     
             $("#services").fadeOut(function(){
-                $(this).text(" ").fadeIn();
+                $(this).text("Click the below icon").fadeIn();
             });
         });
         
