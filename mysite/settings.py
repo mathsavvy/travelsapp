@@ -79,6 +79,7 @@ if os.getenv('GAE_INSTANCE'):
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'serviceus',
             'USER': 'admin',
+            'HOST': 'serviceus-199715:asia-east1:serviceus'
             'PASSWORD': 'password123',
             'PORT': '5432',
         }
@@ -89,16 +90,11 @@ else:
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'serviceus',
             'USER': 'sridhar',
+            'HOST': '127.0.0.1'
             'PASSWORD': 'sripan99',
             'PORT': '5432',
         }
     }
-
-DATABASES['default']['HOST'] = 'serviceus-199715:asia-east1:serviceus'
-if os.getenv('GAE_INSTANCE'):
-    pass
-else:
-    DATABASES['default']['HOST'] = '127.0.0.1'
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
