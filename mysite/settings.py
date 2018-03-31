@@ -78,14 +78,17 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'serviceus',
-        'USER': 'sridhar',
-        'PASSWORD': 'sripan99',
-        'HOST': 'localhost',
-        'PORT': '',
+        'USER': 'admin',
+        'PASSWORD': 'password123',
+        'PORT': '5432',
     }
 }
 
-
+DATABASES['default']['HOST'] = 'serviceus-199715:asia-east1:serviceus'
+if os.getenv('GAE_INSTANCE'):
+    pass
+else:
+    DATABASES['default']['HOST'] = '127.0.0.1'
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
