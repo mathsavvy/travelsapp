@@ -81,6 +81,7 @@ if os.getenv('GAE_INSTANCE'):
             'PORT': '5432',
         }
     }
+    DEBUG = False
 else:
     DATABASES = {
         'default': {
@@ -92,6 +93,7 @@ else:
             'PORT': '5432',
         }
     }
+    DEBUG = True
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
