@@ -142,6 +142,11 @@
         .btn-default, .btn-default:hover, .btn-default:active, .btn-default:visited {
             background-color: rgb(12, 12, 12) !important;
         }
+
+        #services {
+            height:  50px;
+        }
+
     </style>
 </head>
 
@@ -192,37 +197,21 @@
             $("#title").fadeOut(function() {
                 $(this).text("Book Now").fadeIn();
             });     
-            $("#services").fadeOut(function(){
-                $(this).text("").fadeIn();
-            });
+            $("#services").animate({
+                opacity: 0
+            }, 100)
         });
 
         $('#cabs').mouseout(function(){
             $("#title").fadeOut(function() {
                 $(this).text("Wanna book a cab?").fadeIn();
             });     
-            $("#services").fadeOut(function(){
-                $(this).text("Click the below icon").fadeIn();
-            });
+            $("#services").animate({
+                opacity: 1
+           }, 300)
         });
         
-        $('#projects').mouseover(function(){
-            $("#title").fadeOut(function() {
-                $(this).text("Need components for your project?").fadeIn();
-            });     
-            $("#services").fadeOut(function(){
-                $(this).text("Order Now").fadeIn();
-            });
-        });
-
-        $('#projects').mouseout(function(){
-            $("#title").fadeOut(function() {
-                $(this).text("ServiceUs").fadeIn();
-            });     
-            $("#services").fadeOut(function(){
-                $(this).text("").fadeIn();
-            });
-        });
+        
 
     </script>
 </body>

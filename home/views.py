@@ -102,7 +102,7 @@ def register(request):
         return render(request, "home/Signup.html", {
             "error_message": "*Invalid Mobile number"
         })
-    elif len(request.POST['pass'])<8:
+    elif len(request.POST['pass'])<6:
         return render(request, "home/Signup.html", {
             "error_message": "*Password should have more than 4 characters"
         })
