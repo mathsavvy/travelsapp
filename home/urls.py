@@ -1,21 +1,23 @@
+from django.conf.urls import url
+
 from django.contrib import admin
-from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index,name='befsignin'),
-    path('signin/', views.signin,name='signin'),
-    path('signup/', views.signup, name='signup'),
-    path('auth/',views.auth, name='auth'),
-    path('about',views.about, name='about'),
-    path('aboutus/', views.aboutus, name='aboutus'),
-    path('contact/', views.contact, name='contact'),
-    path('contactus/',views.contactus, name='contactus'),
-    path('register/',views.register, name='register'),
-    path('retrieve/',views.retrieve, name='retrieve'),
-    path('forgotpassword/',views.forgpass, name='forgpass'),
-    path('home/', views.home, name='home'),
-    path('logout/', views.logout_view, name='logout'),
-    path('cab/', views.cab, name='cab'),
-    path('confirmation/', views.cab_book, name='cab_book'),
+    url('', views.index,name='befsignin'),
+    url('signin/', views.signin,name='signin'),
+    url('signup/', views.signup, name='signup'),
+    url('auth/',views.auth, name='auth'),
+    url('about',views.about, name='about'),
+    url('aboutus/', views.aboutus, name='aboutus'),
+    url('contact/', views.contact, name='contact'),
+    url('contactus/',views.contactus, name='contactus'),
+    url('register/',views.register, name='register'),
+    url('retrieve/',views.retrieve, name='retrieve'),
+    url('forgotpassword/',views.forgpass, name='forgpass'),
+    url('home/', views.home, name='home'),
+    url('logout/', views.logout_view, name='logout'),
+    url('cab/', views.cab, name='cab'),
+    url('confirmation/', views.cab_book, name='cab_book'),
 ]
+

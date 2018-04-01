@@ -25,7 +25,7 @@ SECRET_KEY = '_nr3&=b2#e0$0)b=bjrq_(cz625x=q6u0q=7w9dx1cpd4g@jy@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -73,16 +73,26 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'serviceus',
-        'USER': 'admin',
-        'PASSWORD': 'password123',
-        'PORT': '5432',
+if os.getenv('GAE_INSTANCE'):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'serviceus',
+            'USER': 'admin',
+            'PASSWORD': 'password123',
+            'PORT': '5432',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'serviceus',
+            'USER': 'sridhar',
+            'PASSWORD': 'sripan99',
+            'PORT': '5432',
+        }
+    }
 
 DATABASES['default']['HOST'] = 'serviceus-199715:asia-east1:serviceus'
 if os.getenv('GAE_INSTANCE'):
@@ -125,4 +135,7 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'https://storage.googleapis.com/<your-gcs-bucket>/static/'
+
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
