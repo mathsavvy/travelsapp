@@ -4,7 +4,7 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.index,name='befsignin'),
+    url(r'^', views.index,name='befsignin'),
     url(r'^signin/', views.signin,name='signin'),
     url(r'^signup/', views.signup, name='signup'),
     url(r'^auth/',views.auth, name='auth'),

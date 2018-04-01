@@ -23,7 +23,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_nr3&=b2#e0$0)b=bjrq_(cz625x=q6u0q=7w9dx1cpd4g@jy@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -79,10 +78,12 @@ if os.getenv('GAE_INSTANCE'):
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'serviceus',
             'USER': 'admin',
+            'HOST': 'serviceus-199715:asia-east1:serviceus',
             'PASSWORD': 'password123',
             'PORT': '5432',
         }
     }
+    DEBUG = False
 else:
     DATABASES = {
         'default': {
@@ -90,17 +91,11 @@ else:
             'NAME': 'serviceus',
             'USER': 'sridhar',
             'HOST': 'localhost',
-
             'PASSWORD': 'sripan99',
             'PORT': '5432',
         }
     }
-
-DATABASES['default']['HOST'] = 'serviceus-199715:asia-east1:serviceus'
-if os.getenv('GAE_INSTANCE'):
-    pass
-else:
-    DATABASES['default']['HOST'] = '127.0.0.1'
+    DEBUG = True
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 

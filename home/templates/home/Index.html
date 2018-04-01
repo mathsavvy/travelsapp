@@ -146,7 +146,6 @@
         #services {
             height:  50px;
         }
-
     </style>
 </head>
 
@@ -194,21 +193,21 @@
     <script>
 
         $('#cabs').mouseover(function(){
-            $("#title").fadeOut(function() {
-                $(this).text("Book Now").fadeIn();
-            });     
             $("#services").animate({
                 opacity: 0
             }, 100)
+            $("#title").fadeOut(function() {
+                $(this).text("Book Now").fadeIn();
+            });
         });
 
         $('#cabs').mouseout(function(){
             $("#title").fadeOut(function() {
                 $(this).text("Wanna book a cab?").fadeIn();
+                $("#services").animate({
+                    opacity: 1
+                }, 300)
             });     
-            $("#services").animate({
-                opacity: 1
-           }, 300)
         });
         
         
