@@ -155,7 +155,7 @@
     <nav class="navbar navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="{% url 'home' %}">ServiceUs</a>
+                    <a class="navbar-brand" href="{% url 'home' %}">Lucky Tour n Travels</a>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -166,10 +166,6 @@
             <!-- Contents of nav bar -->
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'contact' %}"><strong>Contact Us</strong></a></li>
-                    <li><a href="{% url 'about' %}"><strong>About</strong></a></li>
-                    <li><a href="{% url 'signup' %}"><strong>Sign Up</strong></a></li>
-                    <li><a href="{% url 'signin' %}"><strong>Log in</strong></a></li>
                 </ul>
             </div>
         </div>
@@ -183,7 +179,7 @@
         <br><br><br>
         <div class="row slideanim">
             <div class="col-sm-12 col-lg-12 col-xs-12">
-                <button id="cabs" type="button" class="btn btn-default btn-circle btn-xl" onclick="location.href = '{% url 'signin' %}';">
+                <button id="cabs" type="button" class="btn btn-default btn-circle btn-xl" onclick="location.href = '{% url 'home' %}';">
                     <i class="fa fa-car"></i>
                 </button>
             </div>
